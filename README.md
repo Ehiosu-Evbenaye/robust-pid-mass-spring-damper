@@ -1,83 +1,50 @@
-# Robust PID Control and Plant Uncertainty Analysis for a Mass‑Spring‑Damper System
+### Robust PID Control and Plant Uncertainty Analysis for a Mass‑Spring‑Damper System
+*Control Systems Project Status: Phase 1 (Analytical Design) Completed; Phase 2 (Computational Validation) Pending.*
 
-**Control Systems Project**  
-*Status: In progress – theoretical foundations completed; software validation pending.*
+Overview
+This project investigates the design and robustness of a PID controller for a second‑order mass‑spring‑damper system. By prioritizing a first-principles approach, the design ensures that performance specifications are met through symbolic derivation and manual tuning before transitioning to numerical simulation.
 
-## Overview
+The primary objective is to maintain transient stability and performance (overshoot, settling time, steady‑state error) despite $\pm 20\%$ variations in mass $(m)$, stiffness $(k)$, and damping $(c)$.
 
-This project investigates the design and robustness of a PID controller for a second‑order mass‑spring‑damper system. The goal is to meet transient performance specifications (overshoot, settling time, steady‑state error) and evaluate how parameter variations (±20% in mass, stiffness, damping) affect closed‑loop stability and performance. A comparison with a lead‑lag compensator will be performed to highlight trade‑offs.
-
-## Completed Work (without MATLAB/Simulink)
-
-All analytical and manual design steps have been completed. The work so far relies solely on mathematics (pen, paper, and a calculator) and is documented below.
-
-### 1. System Modelling
-- Derived the differential equation:
-  \[
-  m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t)
-  \]
-- Obtained the transfer function:
-  \[
-  G(s) = \frac{1}{ms^2 + cs + k}
-  \]
-- Nominal parameters selected for analysis (exact values can be chosen later).
-
-### 2. Performance Specifications
-- Transient requirements defined:
-  - Maximum overshoot: ≤ 10%
-  - Settling time (2% criterion): ≤ 2 s
-  - Steady‑state error for a step input: 0 (due to the integrator in the PID)
-- Calculated the desired closed‑loop dominant pole locations:
-  - Damping ratio \(\zeta\) from overshoot formula
-  - Natural frequency \(\omega_n\) from settling time
-  - Target poles placed accordingly.
-
-### 3. Analytical PID Tuning
-- Used **pole placement** to determine PID gains \((K_p, K_i, K_d)\).
-- The closed‑loop characteristic polynomial was matched to a third‑order target polynomial (dominant second‑order pair plus a far‑left real pole).
-- Solved for the gains manually (equations derived and solved symbolically).  
-- *Gain values have been computed and recorded; they will be verified with simulations.*
-
-### 4. Sensitivity Analysis (Robustness)
-- Parameter uncertainty defined as \(\pm 20\%\) variations in \(m\), \(c\), and \(k\).
-- Derived the closed‑loop transfer function symbolically in terms of the uncertain parameters and the designed PID gains.
-- Calculated **sensitivity functions**:
-  \[
-  S_p = \frac{\partial T / T}{\partial p / p}
-  \]
-  for each parameter, evaluated at the nominal operating point.
-- Performed a **worst‑case analysis** by substituting extreme parameter values into the characteristic polynomial and estimating pole locations (solved analytically where possible, or via simple root‑finding).
-
-### 5. Stability Margin Calculations
-- Using the open‑loop transfer function \(L(s) = C(s)G(s)\) with the obtained PID gains, the gain and phase margins were computed manually:
-  - **Gain margin**: solved for the frequency where \(\angle L(j\omega) = -180^\circ\), then \(GM = 1/|L(j\omega)|\).
-  - **Phase margin**: solved for the gain crossover frequency (\(|L(j\omega)|=1\)), then \(PM = 180^\circ + \angle L(j\omega)\).
-- These margins provide an initial quantitative assessment of robustness.
-
-### 6. Preliminary Lead‑Lag Compensator Design
-- To facilitate a later comparison, a **lead compensator** was designed analytically to meet the same transient specifications.
-- The compensator’s zero and pole locations were determined based on the required phase lead, and the gain was set to satisfy the steady‑state error requirement.
-- A brief comparison between the PID and lead‑lag structures has been outlined (complexity, steady‑state behavior, robustness potential).
-
-## What Remains (to be done with MATLAB/Simulink)
-
-The next phase involves verifying and refining the analytical results using simulation software. Once MATLAB and Simulink are installed, the following tasks will be completed:
-
-- Implement the plant and PID controller in Simulink.
-- Validate the step response against the desired specifications.
-- Perform robustness analysis with ±20% parameter variations using Simulink simulations.
-- Repeat the same steps for the lead‑lag compensator.
-- Compute precise gain and phase margins from the simulated frequency responses.
-- Generate comparative plots and finalize the report.
-
-## Repository Contents (to be updated)
-
-- `docs/` – Detailed derivations, calculations, and notes (LaTeX or PDF).
-- `simulink/` – Simulink models (to be added after software installation).
-- `matlab/` – MATLAB scripts for analysis (to be added).
-- `README.md` – This file.
-
----
-
-*Last updated: [Date]*  
-*Software status: MATLAB/Simulink not yet installed – all theoretical work completed.*
+Phase 1: Analytical Foundations (Completed)
+This phase was executed entirely via manual derivation and symbolic analysis to establish a baseline for future simulation.
+1. System Modelling
+The physical system was modeled using the second-order differential equation:
+$[
+m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t)
+]$
+The resulting open-loop transfer function is:
+[
+G(s) = \frac{1}{ms^2 + cs + k}
+]
+1. Analytical PID Tuning
+Using pole placement, PID gains (K_p, K_i, K_d) were determined to satisfy:
+ * Maximum Overshoot: \leq 10\%
+ * Settling Time (2%): \leq 2\text{ s}
+ * Steady‑State Error: 0
+The gains were derived by matching the closed-loop characteristic polynomial to a desired third-order target polynomial, ensuring dominant second-order behavior.
+3. Sensitivity & Robustness Analysis
+To assess the impact of parameter uncertainty (\pm 20\%), symbolic sensitivity functions were derived:
+[
+S_p = \frac{\partial T / T}{\partial p / p}
+]
+A manual worst-case analysis was performed to estimate pole migration under extreme variations of m, c, \text{ and } k.
+4. Stability Margins
+Gain and Phase margins were computed manually using the frequency response of the open-loop system L(s) = C(s)G(s). These provide the quantitative "safety factor" for the nominal design before software verification.
+Phase 2: Simulation & Validation (Next Steps)
+Once the MATLAB/Simulink environment is initialized, the following validation roadmap will be executed:
+ * [ ] Simulink Implementation: Build the plant and controller blocks.
+ * [ ] Transient Verification: Compare simulated step responses against analytical predictions.
+ * [ ] Bode Analysis: Generate precise Gain/Phase margin plots.
+ * [ ] Monte Carlo/Uncertainty Testing: Run batch simulations for the \pm 20\% parameter range.
+ * [ ] Lead-Lag Comparison: Overlay performance results of the PID vs. the lead-lag compensator.
+Repository Structure
+ * docs/ – Full LaTeX derivations and manual calculation sheets.
+ * simulink/ – (Pending) .slx model files.
+ * matlab/ – (Pending) Scripts for automated frequency response analysis.
+Key Improvements Made:
+ * Reframed Status: Moved from "In progress" to "Phase 1: Completed," which sounds more accomplished.
+ * Terminology: Used "First-Principles Approach" and "Symbolic Derivation" to highlight the difficulty and value of your manual work.
+ * Roadmap: Turned the "What Remains" section into a "Next Steps" checklist, which looks more organized to recruiters.
+ * Cohesion: It now matches the "Engineering-Projects" list exactly, creating a professional and consistent narrative across your GitHub.
+Is there any specific analytical finding (like a specific Gain Margin value) you'd like to add to the "Phase 1" section to make it even more data-rich?
