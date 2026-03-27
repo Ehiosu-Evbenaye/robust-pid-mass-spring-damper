@@ -31,6 +31,8 @@ S_p = \frac{\partial T / T}{\partial p / p}
 A manual worst-case analysis was performed to estimate pole migration under extreme variations of m, c, \text{ and } k.
 4. Stability Margins
 Gain and Phase margins were computed manually using the frequency response of the open-loop system L(s) = C(s)G(s). These provide the quantitative "safety factor" for the nominal design before software verification.
+
+
 Phase 2: Simulation & Validation (Next Steps)
 Once the MATLAB/Simulink environment is initialized, the following validation roadmap will be executed:
  * [ ] Simulink Implementation: Build the plant and controller blocks.
