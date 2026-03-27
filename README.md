@@ -48,7 +48,3 @@ Once the MATLAB/Simulink environment is initialized, the following validation ro
  * [ ] Bode Analysis: Generate precise Gain/Phase margin plots.
  * [ ] Monte Carlo/Uncertainty Testing: Run batch simulations for the $\pm 20\%$ parameter range.
  * [ ] Lead-Lag Comparison: Overlay performance results of the PID vs. the lead-lag compensator.
-Repository Structure
- * docs/ – Full LaTeX derivations and manual calculation sheets.
- * simulink/ – (Pending) .slx model files.
- * matlab/ – (Pending) Scripts for automated frequency response analysis.
