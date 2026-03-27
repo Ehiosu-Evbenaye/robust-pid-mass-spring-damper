@@ -6,7 +6,7 @@ This project investigates the design and robustness of a PID controller for a se
 
 The primary objective is to maintain transient stability and performance (overshoot, settling time, steady‑state error) despite $\pm 20\%$ variations in mass $(m)$, stiffness $(k)$, and damping $(c)$.
 
-Phase 1: Analytical Foundations (Completed)<br>
+## Phase 1: Analytical Foundations (Completed)<br>
 This phase was executed entirely via manual derivation and symbolic analysis to establish a baseline for future simulation.
 1. System Modelling<br>
 The physical system was modeled using the second-order differential equation:<br>
@@ -18,27 +18,27 @@ $[
 G(s) = \frac{1}{ms^2 + cs + k}
 ]$ <br>
 1. Analytical PID Tuning
-Using pole placement, PID gains (K_p, K_i, K_d) were determined to satisfy:
- * Maximum Overshoot: \leq 10\%
- * Settling Time (2%): \leq 2\text{ s}
- * Steady‑State Error: 0
+Using pole placement, PID gains $(K_p, K_i, K_d)$ were determined to satisfy:
+ * Maximum Overshoot: $\leq 10\%$
+ * Settling Time (2%): $\leq 2\text{ s}$
+ * Steady‑State Error: 0 <br>
 The gains were derived by matching the closed-loop characteristic polynomial to a desired third-order target polynomial, ensuring dominant second-order behavior.
 3. Sensitivity & Robustness Analysis
-To assess the impact of parameter uncertainty (\pm 20\%), symbolic sensitivity functions were derived:
-[
+To assess the impact of parameter uncertainty $(\pm 20\%)$, symbolic sensitivity functions were derived:
+$[
 S_p = \frac{\partial T / T}{\partial p / p}
-]
-A manual worst-case analysis was performed to estimate pole migration under extreme variations of m, c, \text{ and } k.
+]$
+A manual worst-case analysis was performed to estimate pole migration under extreme variations of $m, c, \text{ and } k$.
 4. Stability Margins
-Gain and Phase margins were computed manually using the frequency response of the open-loop system L(s) = C(s)G(s). These provide the quantitative "safety factor" for the nominal design before software verification.
+Gain and Phase margins were computed manually using the frequency response of the open-loop system $L(s) = C(s)G(s)$. These provide the quantitative "safety factor" for the nominal design before software verification.
 
 
-Phase 2: Simulation & Validation (Next Steps)
+## Phase 2: Simulation & Validation (Next Steps)<br>
 Once the MATLAB/Simulink environment is initialized, the following validation roadmap will be executed:
  * [ ] Simulink Implementation: Build the plant and controller blocks.
  * [ ] Transient Verification: Compare simulated step responses against analytical predictions.
  * [ ] Bode Analysis: Generate precise Gain/Phase margin plots.
- * [ ] Monte Carlo/Uncertainty Testing: Run batch simulations for the \pm 20\% parameter range.
+ * [ ] Monte Carlo/Uncertainty Testing: Run batch simulations for the $\pm 20\%$ parameter range.
  * [ ] Lead-Lag Comparison: Overlay performance results of the PID vs. the lead-lag compensator.
 Repository Structure
  * docs/ – Full LaTeX derivations and manual calculation sheets.
