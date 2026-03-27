@@ -17,19 +17,27 @@ The resulting open-loop transfer function is:<br>
 $[
 G(s) = \frac{1}{ms^2 + cs + k}
 ]$ <br>
-1. Analytical PID Tuning
+<br>
+
+2. Analytical PID Tuning<br>
 Using pole placement, PID gains $(K_p, K_i, K_d)$ were determined to satisfy:
  * Maximum Overshoot: $\leq 10\%$
  * Settling Time (2%): $\leq 2\text{ s}$
  * Steady‑State Error: 0 <br>
+ 
 The gains were derived by matching the closed-loop characteristic polynomial to a desired third-order target polynomial, ensuring dominant second-order behavior.
-3. Sensitivity & Robustness Analysis
+<br>
+<br>
+
+3. Sensitivity & Robustness Analysis<br>
 To assess the impact of parameter uncertainty $(\pm 20\%)$, symbolic sensitivity functions were derived:
 $[
 S_p = \frac{\partial T / T}{\partial p / p}
 ]$
 A manual worst-case analysis was performed to estimate pole migration under extreme variations of $m, c, \text{ and } k$.
-4. Stability Margins
+<br>
+
+4. Stability Margins<br>
 Gain and Phase margins were computed manually using the frequency response of the open-loop system $L(s) = C(s)G(s)$. These provide the quantitative "safety factor" for the nominal design before software verification.
 
 
