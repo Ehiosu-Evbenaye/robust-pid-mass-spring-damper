@@ -6,17 +6,17 @@ This project investigates the design and robustness of a PID controller for a se
 
 The primary objective is to maintain transient stability and performance (overshoot, settling time, steady‑state error) despite $\pm 20\%$ variations in mass $(m)$, stiffness $(k)$, and damping $(c)$.
 
-Phase 1: Analytical Foundations (Completed)
+Phase 1: Analytical Foundations (Completed)<br>
 This phase was executed entirely via manual derivation and symbolic analysis to establish a baseline for future simulation.
-1. System Modelling
-The physical system was modeled using the second-order differential equation:
+1. System Modelling<br>
+The physical system was modeled using the second-order differential equation:<br>
 $[
 m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t)
-]$
-The resulting open-loop transfer function is:
-[
+]$ <br>
+The resulting open-loop transfer function is:<br>
+$[
 G(s) = \frac{1}{ms^2 + cs + k}
-]
+]$ <br>
 1. Analytical PID Tuning
 Using pole placement, PID gains (K_p, K_i, K_d) were determined to satisfy:
  * Maximum Overshoot: \leq 10\%
@@ -42,9 +42,3 @@ Repository Structure
  * docs/ – Full LaTeX derivations and manual calculation sheets.
  * simulink/ – (Pending) .slx model files.
  * matlab/ – (Pending) Scripts for automated frequency response analysis.
-Key Improvements Made:
- * Reframed Status: Moved from "In progress" to "Phase 1: Completed," which sounds more accomplished.
- * Terminology: Used "First-Principles Approach" and "Symbolic Derivation" to highlight the difficulty and value of your manual work.
- * Roadmap: Turned the "What Remains" section into a "Next Steps" checklist, which looks more organized to recruiters.
- * Cohesion: It now matches the "Engineering-Projects" list exactly, creating a professional and consistent narrative across your GitHub.
-Is there any specific analytical finding (like a specific Gain Margin value) you'd like to add to the "Phase 1" section to make it even more data-rich?
