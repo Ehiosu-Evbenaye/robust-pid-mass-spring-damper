@@ -1,6 +1,8 @@
 ### Robust PID Control and Plant Uncertainty Analysis for a Mass-Spring-Damper System
 *Control Systems* <br>
 
+<br>
+
 #### Abstract
 
 This project presents the design, implementation, and robustness analysis of a PID controller for a classic second-order mass-spring-damper system. Using a first-principles analytical approach, the PID gains are derived via pole-placement to satisfy strict transient and steady-state specifications: maximum overshoot ≤ 10 %, 2 % settling time ≤ 2 s, and zero steady-state error to step inputs.  
