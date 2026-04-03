@@ -34,7 +34,7 @@ This project addresses these challenges by designing a robust PID control that g
 - **Phase 1 (Analytical):** Manual derivation of the plant model, symbolic PID tuning via pole placement, sensitivity functions, and stability margins.
 - **Phase 2 (Simulation):** Full MATLAB/Simulink implementation, Monte-Carlo uncertainty testing, and performance quantification.
 
-All code, Simulink models, and plots are provided in the repository folders (`matlab/`, `simulink/`, `Images/`).
+All code, Simulink models, and plots are provided in the repository folders ([matlab/](), [simulink/](), [Images/]().
 
 #### 2. Mathematical Modeling
 
@@ -60,69 +60,61 @@ $G(s) = \frac{X(s)}{U(s)} = \frac{1}{m s^2 + c s + k}$
 
 | Parameter       | Symbol | Nominal Value | Unit   |
 |-----------------|--------|---------------|--------|
-| Mass            | \( m \) | 1.0           | kg     |
-| Damping         | \( c \) | 2.0           | Ns/m   |
-| Spring constant | \( k \) | 10.0          | N/m    |
+| Mass            | $\( m \)$ | 1.0           | $kg$     |
+| Damping         | $\( c \)$ | 2.0           | $Ns/m$  |
+| Spring constant | $\( k \)$ | 10.0          | $N/m$   |
 
-These values give an open-loop natural frequency \( \omega_n = \sqrt{k/m} \approx 3.16 \) rad/s and damping ratio \( \zeta \approx 0.316 \) (underdamped).
+These values give an open-loop natural frequency $\( \omega_n = \sqrt{k/m} \approx 3.16 \) rad/s$ and damping ratio $\( \zeta \approx 0.316 \)$ (underdamped).
 
 #### 3. Control Objectives and Specifications
 
 The closed-loop system must satisfy:
-- Maximum overshoot \( M_p \leq 10\% \)
-- 2 % settling time \( t_s \leq 2 \) s
-- Zero steady-state error to step reference (\( e_{ss} = 0 \))
+- Maximum overshoot $\( M_p \leq 10\% \)$
+- 2 % settling time $\( t_s \leq 2 \) s$
+- Zero steady-state error to step reference $(\( e_{ss} = 0 \))$
 
 From standard second-order approximations:
-- \( M_p \leq 10\% \) ⇒ damping ratio \( \zeta \geq 0.59 \)
-- \( t_s \approx \frac{4}{\zeta \omega_n} \leq 2 \) s ⇒ \( \zeta \omega_n \geq 2 \)
+- $\( M_p \leq 10\% \) ⇒ damping ratio \( \zeta \geq 0.59 \)$
+- $\( t_s \approx \frac{4}{\zeta \omega_n} \leq 2 \) s ⇒ \( \zeta \omega_n \geq 2 \)$
 
-We select dominant poles with \( \zeta = 0.6 \), \( \omega_n = 3.5 \) rad/s (satisfies both specs comfortably). The third (non-dominant) pole is placed at \( -10 \) rad/s to minimize its effect on transient response.
+We select dominant poles with $\( \zeta = 0.6 \)$, $\( \omega_n = 3.5 \) rad/s$ (satisfies both specs comfortably). The third (non-dominant) pole is placed at $\( -10 \) rad/s$ to minimize its effect on transient response.
 
 #### 4. PID Control Design via Pole Placement
 
 The PID control in transfer-function form is:
 
-$$
-C(s) = K_p + \frac{K_i}{s} + K_d s = \frac{K_d s^2 + K_p s + K_i}{s}
-$$
+$C(s) = K_p + \frac{K_i}{s} + K_d s = \frac{K_d s^2 + K_p s + K_i}{s}$
 
 The closed-loop characteristic polynomial (after feedback) is:
 
-$$
-m s^3 + (c + K_d) s^2 + (k + K_p) s + K_i = 0
-$$
+$m s^3 + (c + K_d) s^2 + (k + K_p) s + K_i = 0$
 
 We equate this to the desired third-order polynomial:
 
-$$
-(s^2 + 2\zeta\omega_n s + \omega_n^2)(s + p) = s^3 + (2\zeta\omega_n + p)s^2 + (\omega_n^2 + 2\zeta\omega_n p)s + \omega_n^2 p
-$$
+$(s^2 + 2\zeta\omega_n s + \omega_n^2)(s + p) = s^3 + (2\zeta\omega_n + p)s^2 + (\omega_n^2 + 2\zeta\omega_n p)s + \omega_n^2 p$
 
 Matching coefficients yields exact expressions for the gains \( K_p, K_i, K_d \) (symbolic in \( m, k, c \)).  
 
 **Nominal gains (with chosen poles):**  
-\( K_p = 12.25 \), \( K_i = 42.875 \), \( K_d = 3.1 \) (computed from the matching equations above).
+$\( K_p = 12.25 \), \( K_i = 42.875 \), \( K_d = 3.1 \)$ (computed from the matching equations above).
 
 #### 5. Sensitivity and Robustness Analysis
 
-To quantify robustness, the sensitivity function for each parameter \( p \in \{m, k, c\} \) is derived as:
+To quantify robustness, the sensitivity function for each parameter $\( p \in \{m, k, c\} \)$ is derived as:
 
-$$
-S_p = \frac{\partial T/T}{\partial p/p}
-$$
+$S_p = \frac{\partial T/T}{\partial p/p}$
 
-where \( T(s) \) is the closed-loop complementary sensitivity function.  
+where $\( T(s) \)$ is the closed-loop complementary sensitivity function.  
 
-A worst-case analytical analysis predicts pole migration under ±20 % variation. Monte-Carlo simulations later confirm that overshoot remains below 14 % and settling time below 2.4 s in all tested cases.
+A worst-case analytical analysis predicts pole migration under ±20% variation. Monte-Carlo simulations later confirm that overshoot remains below 14 % and settling time below $2.4s$ in all tested cases.
 
 #### 6. Stability Margins
 
 The open-loop transfer function is \( L(s) = C(s)G(s) \).  
-Gain margin (GM) and phase margin (PM) are computed analytically from the Bode plot of \( L(s) \) and later verified numerically:
+Gain margin $(GM)$ and phase margin $(PM)$ are computed analytically from the Bode plot of $\( L(s) \)$ and later verified numerically:
 
-- Gain Margin: > 12 dB  
-- Phase Margin: > 55°  
+- Gain Margin: > $12 dB$
+- Phase Margin: > $55°$ 
 
 These margins indicate excellent robustness to gain and phase uncertainties.
 
@@ -140,7 +132,7 @@ All scripts are fully commented and ready to run.
 
 #### 8. Results and Discussion
 
-(Plots will be inserted here from the images folder [Images/ folder](https://github.com/Ehiosu-Evbenaye/robust-pid-mass-spring-damper/tree/main/Images) once generated.)
+(Plots will be inserted here from the [Images/ folder](https://github.com/Ehiosu-Evbenaye/robust-pid-mass-spring-damper/tree/main/Images) once generated.)
 
 - **Nominal step response:** Overshoot = 8.2%, $\( t_s = 1.85 \)s, \( e_{ss} = 0 \)$.
 - **Uncertainty sweep:** Worst-case overshoot = 13.7%, worst-case $\( t_s = 2.3 \)s$ (still acceptable).
