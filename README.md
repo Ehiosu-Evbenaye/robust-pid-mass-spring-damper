@@ -1,7 +1,8 @@
 ### Robust PID Control and Plant Uncertainty Analysis for a Mass‑Spring‑Damper System
-*Control Systems Project Status: Phase 1 (Analytical Design) Completed; Phase 2 (Computational Validation) Pending.*
+*Control Systems* <br>
+<br>
 
-Overview
+Overview <br>
 This project investigates the design and robustness of a PID controller for a second‑order mass‑spring‑damper system. By prioritizing a first-principles approach, the design ensures that performance specifications are met through symbolic derivation and manual tuning before transitioning to numerical simulation.
 
 The primary objective is to maintain transient stability and performance (overshoot, settling time, steady‑state error) despite $\pm 20\%$ variations in mass $(m)$, stiffness $(k)$, and damping $(c)$.
