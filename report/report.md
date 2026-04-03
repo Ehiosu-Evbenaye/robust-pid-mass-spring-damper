@@ -27,7 +27,7 @@ The results confirm that the designed robust PID controller maintains excellent 
 - [10. Conclusion](#10-conclusion)
 - [References](#references)
 
-#### 1. Introductions
+#### 11. Introduction
 
 The mass-spring-damper system is a fundamental benchmark in control engineering. It models a wide range of physical processes, including automotive suspensions, seismic isolation platforms, and robotic positioning systems. In real applications, plant parameters (mass, damping, stiffness) are never known exactly and can vary due to manufacturing tolerances, temperature changes, or payload variations.
 
