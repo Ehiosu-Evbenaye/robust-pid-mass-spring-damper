@@ -40,26 +40,21 @@ All code, Simulink models, and plots are provided in the repository folders (`ma
 
 ##### 2.1 System Dynamics
 
-From Newton’s second law, the equation of motion is:
-
-$$
-m \ddot{x}(t) + c \dot{x}(t) + k x(t) = u(t)
-$$
+From Newton’s second law, the equation of motion is: <br>
+$m \ddot{x}(t) + c \dot{x}(t) + k x(t) = u(t)$
 
 where:
-- \( m \): mass (kg)
-- \( c \): damping coefficient (Ns/m)
-- \( k \): spring stiffness (N/m)
-- \( x(t) \): position (m)
-- \( u(t) \): control force (N)
+- $\( m \)$: mass $(kg)$
+- $\( c \)$: damping coefficient $(Ns/m)$
+- $\( k \)$: spring stiffness $(N/m)$
+- $\( x(t) \)$: position $(m)$
+- $\( u(t) \)$: control force $(N)$
 
 ##### 2.2 Open-Loop Transfer Function
 
 Taking the Laplace transform (zero initial conditions):
 
-$$
-G(s) = \frac{X(s)}{U(s)} = \frac{1}{m s^2 + c s + k}
-$$
+$G(s) = \frac{X(s)}{U(s)} = \frac{1}{m s^2 + c s + k}$
 
 ##### 2.3 Nominal Parameter Values
 
