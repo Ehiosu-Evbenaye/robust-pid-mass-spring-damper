@@ -24,7 +24,6 @@ The results confirm that the designed robust PID control maintains excellent tra
 - [8. Results and Discussion](#8-results-and-discussion)
 - [9. Comparison with Lead-Lag Compensator](#9-comparison-with-lead-lag-compensator)
 - [10. Conclusion](#10-conclusion)
-- [References](#references)
 
 #### 1. Introduction
 
@@ -166,9 +165,3 @@ A lead-lag compensator was designed to meet identical specifications. Side-by-si
 This project successfully demonstrates a complete robust PID design workflow — from analytical pole placement to full uncertainty quantification — for a mass-spring-damper system. The controller is proven robust to realistic parameter variations, validating its suitability for industrial applications.  
 
 Future extensions could include discrete-time implementation, actuator saturation, or real-time hardware validation on a physical testbed.
-
-#### 11. References
-
-1. Ogata, K. (2010). *Modern Control Engineering*. Prentice Hall.
-2. Dorf, R. C., & Bishop, R. H. (2017). *Modern Control Systems*. Pearson.
-3. MATLAB Control System Toolbox Documentation.
