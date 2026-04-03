@@ -44,11 +44,11 @@ From Newton’s second law, the equation of motion is: <br>
 $m \ddot{x}(t) + c \dot{x}(t) + k x(t) = u(t)$
 
 where:
-- $\( m \)$: mass $(kg)$
-- $\( c \)$: damping coefficient $(Ns/m)$
-- $\( k \)$: spring stiffness $(N/m)$
-- $\( x(t) \)$: position $(m)$
-- $\( u(t) \)$: control force $(N)$
+- $\ m \$: mass $kg$
+- $\ c \$: damping coefficient $Ns/m$
+- $\ k \$: spring stiffness $N/m$
+- $\ x(t) \$: position $m$
+- $\ u(t) \$: control force $N$
 
 ##### 2.2 Open-Loop Transfer Function
 
