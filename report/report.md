@@ -34,7 +34,7 @@ This project addresses these challenges by designing a robust PID control that g
 - **Phase 1 (Analytical):** Manual derivation of the plant model, symbolic PID tuning via pole placement, sensitivity functions, and stability margins.
 - **Phase 2 (Simulation):** Full MATLAB/Simulink implementation, Monte-Carlo uncertainty testing, and performance quantification.
 
-All code, Simulink models, and plots are provided in the repository folders ([matlab/](), [simulink/](), [Images/]().
+All code, Simulink models, and plots are provided in the repository folders ([matlab/](https://github.com/Ehiosu-Evbenaye/robust-pid-mass-spring-damper/tree/main/matlab), [simulink/](https://github.com/Ehiosu-Evbenaye/robust-pid-mass-spring-damper/tree/main/simulink), [Images/](https://github.com/Ehiosu-Evbenaye/robust-pid-mass-spring-damper/tree/main/Images).
 
 #### 2. Mathematical Modeling
 
