@@ -10,7 +10,7 @@ The results confirm that the designed robust PID control maintains excellent tra
 
 
 
-#### Table of Contents
+#### Contents
 
 - [1. Introduction](#1-introduction)
 - [2. Mathematical Modeling](#2-mathematical-modeling)
