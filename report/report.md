@@ -6,7 +6,7 @@
 
 This project presents the design, implementation, and robustness analysis of PID control for a classic second-order mass-spring-damper system. Using a first-principles analytical approach, the PID gains are derived via pole placement to satisfy strict transient and steady-state specifications: maximum overshoot ≤ 10%, 2% settling time ≤ 2s, and zero steady-state error to step inputs.
 
-A comprehensive plant uncertainty analysis (±20% variation in mass (m ), damping (c ), and stiffness (k )) is performed to quantify performance degradation. The control system is implemented and validated in MATLAB/Simulink, with additional evaluation of stability margins (gain and phase), disturbance rejection, and a comparison against a lead-lag compensator.
+A comprehensive plant uncertainty analysis (±20% variation in mass $(m )$, damping $(c )$, and stiffness $(k )$) is performed to quantify performance degradation. The control system is implemented and validated in MATLAB/Simulink, with additional evaluation of stability margins (gain and phase), disturbance rejection, and a comparison against a lead-lag compensator.
 
 The results confirm that the designed robust PID control maintains excellent tracking performance and stability under parameter variations, making it suitable for real-world mechanical systems such as vehicle suspensions and vibration isolators.
 
