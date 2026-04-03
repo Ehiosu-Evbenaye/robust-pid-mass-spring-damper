@@ -142,8 +142,8 @@ All scripts are fully commented and ready to run.
 
 (Plots will be inserted here from the `Images/` folder once generated.)
 
-- **Nominal step response:** Overshoot = 8.2 %, \( t_s = 1.85 \) s, \( e_{ss} = 0 \).
-- **Uncertainty sweep:** Worst-case overshoot = 13.7 %, worst-case \( t_s = 2.3 \) s (still acceptable).
+- **Nominal step response:** Overshoot = 8.2%, $\( t_s = 1.85 \)s, \( e_{ss} = 0 \)$.
+- **Uncertainty sweep:** Worst-case overshoot = 13.7%, worst-case $\( t_s = 2.3 \)s$ (still acceptable).
 - **Disturbance rejection:** Input disturbance attenuated within 1.2 s.
 
 The controller successfully meets all specifications even under maximum plant variation.
