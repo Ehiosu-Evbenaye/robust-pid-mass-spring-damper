@@ -15,7 +15,7 @@ The results confirm that the designed robust PID control maintains excellent tra
 - [1. Introduction](#1-introduction)
 - [2. Mathematical Modeling](#2-mathematical-modeling)
 - [3. Control Objectives and Specifications](#3-control-objectives-and-specifications)
-- [4. PID Controller Design via Pole Placement](#4-pid-controller-design-via-pole-placement)
+- [4. PID Control Design via Pole Placement](#4-pid-control-design-via-pole-placement)
 - [5. Sensitivity and Robustness Analysis](#5-sensitivity-and-robustness-analysis)
 - [6. Stability Margins](#6-stability-margins)
 - [7. Simulation and Validation in MATLAB/Simulink](#7-simulation-and-validation-in-matlabsimulink)
@@ -29,7 +29,7 @@ The results confirm that the designed robust PID control maintains excellent tra
 
 The mass-spring-damper system is a fundamental benchmark in control engineering. It models a wide range of physical processes, including automotive suspensions, seismic isolation platforms, and robotic positioning systems. In real applications, plant parameters (mass, damping, stiffness) are never known exactly and can vary due to manufacturing tolerances, temperature changes, or payload variations.
 
-This project addresses these challenges by designing a **robust PID controller** that guarantees performance despite ±20 % uncertainty in all three plant parameters. The methodology follows a rigorous two-phase workflow:
+This project addresses these challenges by designing a robust PID control that guarantees performance despite ±20 % uncertainty in all three plant parameters. The methodology follows a rigorous two-phase workflow:
 
 - **Phase 1 (Analytical):** Manual derivation of the plant model, symbolic PID tuning via pole placement, sensitivity functions, and stability margins.
 - **Phase 2 (Simulation):** Full MATLAB/Simulink implementation, Monte-Carlo uncertainty testing, and performance quantification.
@@ -84,9 +84,9 @@ From standard second-order approximations:
 
 We select dominant poles with \( \zeta = 0.6 \), \( \omega_n = 3.5 \) rad/s (satisfies both specs comfortably). The third (non-dominant) pole is placed at \( -10 \) rad/s to minimize its effect on transient response.
 
-#### 4. PID Controller Design via Pole Placement
+#### 4. PID Control Design via Pole Placement
 
-The PID controller in transfer-function form is:
+The PID control in transfer-function form is:
 
 $$
 C(s) = K_p + \frac{K_i}{s} + K_d s = \frac{K_d s^2 + K_p s + K_i}{s}
