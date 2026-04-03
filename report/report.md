@@ -23,6 +23,8 @@ The results confirm that the designed robust PID control maintains excellent tra
 - [9. Comparison with Lead-Lag Compensator](#9-comparison-with-lead-lag-compensator)
 - [10. Conclusion](#10-conclusion)
 
+<br>
+
 #### 1. Introduction
 
 The mass-spring-damper system is a fundamental benchmark in control engineering. It models a wide range of physical processes, including automotive suspensions, seismic isolation platforms, and robotic positioning systems. In real applications, plant parameters (mass, damping, stiffness) are never known exactly and can vary due to manufacturing tolerances, temperature changes, or payload variations.
