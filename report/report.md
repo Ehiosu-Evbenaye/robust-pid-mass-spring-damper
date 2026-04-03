@@ -167,7 +167,7 @@ This project successfully demonstrates a complete robust PID design workflow —
 
 Future extensions could include discrete-time implementation, actuator saturation, or real-time hardware validation on a physical testbed.
 
-#### References
+#### 11. References
 
 1. Ogata, K. (2010). *Modern Control Engineering*. Prentice Hall.
 2. Dorf, R. C., & Bishop, R. H. (2017). *Modern Control Systems*. Pearson.
